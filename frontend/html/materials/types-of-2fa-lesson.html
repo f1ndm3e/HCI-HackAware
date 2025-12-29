@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link rel="stylesheet" href="/html/css/on-click-lessons.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Sans:wght@400;700&display=swap" />
+  	<title>Types of Two-Factor Authentication - HacknGo</title>
+  	<style>
+  	    /* Center the button text properly */
+  	    .mark-as-complete {
+  	        display: flex !important;
+  	        align-items: center !important;
+  	        justify-content: center !important;
+  	        margin-top: -4px !important;
+  	    }
+  	    
+  	    /* Make the dark blue text box longer - 700px height */
+  	    .on-click-lesson-child1 {
+  	        height: 700px !important;
+  	    }
+  	    
+  	    /* Set height for on-click-lesson-child to 700px */
+  	    .on-click-lesson-child {
+  	        height: 700px !important;
+  	    }
+  	    
+  	    /* Align back to module text with completed checkmark */
+  	    .back-to-module {
+  	        top: 726px !important;
+  	    }
+  	    
+  	    .mark-as-complete {
+  	        top: 726px !important;
+  	    }
+  	    
+  	    /* Lower the button background to align with text */
+  	    .on-click-lesson-inner {
+  	        top: 715px !important;
+  	    }
+  	    
+  	    /* Set the left button background position */
+  	    .on-click-lesson-item {
+  	        top: 716px !important;
+  	    }
+  	</style>
+</head>
+<body>
+  	<div class="phone-frame">
+		<div class="on-click-lesson">
+			<div class="on-click-lesson-child"></div>
+			<div class="on-click-lesson-item"></div>
+			<div class="on-click-lesson-inner" id="rectangle2"></div>
+			<b class="back-to-module" id="backToModule">Back to Module</b>
+			<b class="mark-as-complete">Mark as Complete</b>
+			<div class="rectangle-div"></div>
+			<div class="home">Home</div>
+			<div class="learn">Learn</div>
+			<div class="practice">Practice</div>
+			<div class="profile">Profile</div>
+			<div class="leaderboard">Leaderboard</div>
+			<img class="home-icon" alt="" src="/html/icons/Homepurp.svg" id="homeIcon">
+			<img class="book-open-alt-icon" alt="" src="/html/icons/Book_open_altred.svg" id="bookOpenAltIcon">
+			<img class="atom-alt-icon" alt="" src="/html/icons/Atom_alt.svg" id="atomAltIcon">
+			<img class="trophy-icon" alt="" src="/html/icons/Trophy.svg" id="trophyIcon">
+			<img class="user-icon" alt="" src="/html/icons/User.svg" id="userIcon">
+			<b class="password-security">Types of 2FA</b>
+			<div class="on-click-lesson-child1"></div>
+			<img class="arrow-left-icon" alt="" src="/html/icons/Arrow_left.svg" id="backButton">
+			<div class="passwords-are-the-container">
+				<p class="passwords-are-the">
+					There are several types of two-factor authentication methods, each with different levels of security and convenience.
+				</p>
+				<p class="blank-line">&nbsp;</p>
+				<p class="why-passwords-matter"><b>SMS Text Messages</b></p>
+				<p class="passwords-are-the"><b>&nbsp;</b></p>
+				<ul class="at-least-12-characters-long-mi">
+					<li class="at-least-12-characters-long"><span>Receive codes via text message</span></li>
+					<li class="at-least-12-characters-long"><span>Easy to use and widely supported</span></li>
+					<li class="at-least-12-characters-long"><span>Vulnerable to SIM swapping attacks</span></li>
+				</ul>
+				<p class="blank-line">&nbsp;</p>
+				<p class="why-passwords-matter"><b>Authenticator Apps</b></p>
+				<p class="passwords-are-the"><b>&nbsp;</b></p>
+				<ul class="at-least-12-characters-long-mi">
+					<li class="at-least-12-characters-long"><span>Generate time-based codes (Google Authenticator, Authy)</span></li>
+					<li class="at-least-12-characters-long"><span>More secure than SMS</span></li>
+					<li class="at-least-12-characters-long"><span>Works offline</span></li>
+				</ul>
+				<p class="blank-line">&nbsp;</p>
+				<p class="why-passwords-matter"><b>Hardware Security Keys</b></p>
+				<p class="passwords-are-the"><b>&nbsp;</b></p>
+				<ul class="at-least-12-characters-long-mi">
+					<li class="at-least-12-characters-long"><span>Physical devices (YubiKey, Titan Security Key)</span></li>
+					<li class="at-least-12-characters-long"><span>Highest level of security</span></li>
+					<li class="at-least-12-characters-long"><span>Resistant to phishing attacks</span></li>
+				</ul>
+				<p class="blank-line">&nbsp;</p>
+				<p class="why-passwords-matter"><b>Biometric Authentication</b></p>
+				<p class="passwords-are-the"><b>&nbsp;</b></p>
+				<ul class="at-least-12-characters-long-mi">
+					<li class="at-least-12-characters-long"><span>Fingerprint, face, or voice recognition</span></li>
+					<li class="at-least-12-characters-long"><span>Convenient and secure</span></li>
+					<li class="at-least-12-characters-long"><span>Built into many modern devices</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  	
+  	<script>
+  	    document.addEventListener('DOMContentLoaded', function() {
+  	        checkLessonCompletion();
+  	        document.getElementById('backToModule').addEventListener('click', () => {
+  	            window.location.href = '/html/materials/two-factor-authentication-module.html';
+  	        });
+  	        
+  	        document.getElementById('backButton').addEventListener('click', () => {
+  	            window.location.href = '/html/materials/two-factor-authentication-module.html';
+  	        });
+  	        
+  	        document.getElementById('homeIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/home.html';
+  	        });
+  	        
+  	        document.getElementById('bookOpenAltIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/learning.html';
+  	        });
+  	        
+  	        document.getElementById('atomAltIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/practice.html';
+  	        });
+  	        
+  	        document.getElementById('trophyIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/leaderboard.html';
+  	        });
+  	        
+  	        document.getElementById('userIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/profile.html';
+  	        });
+  	        
+  	        document.querySelector('.mark-as-complete').addEventListener('click', () => {
+  	            markLessonComplete();
+  	        });
+  	    });
+  	    
+  	    async function checkLessonCompletion() {
+  	        try {
+  	            const userData = JSON.parse(localStorage.getItem('userData'));
+  	            if (!userData || !userData.username) return;
+  	            
+  	            const response = await fetch(`/api/users/${userData.username}/progress`);
+  	            const progressData = await response.json();
+  	            const twoFactorProgress = progressData.moduleProgress['two-factor-authentication'] || { completedLessons: [] };
+  	            
+  	            if (twoFactorProgress.completedLessons.includes('types-of-2fa')) {
+  	                transformToCompletionPage();
+  	            }
+  	        } catch (error) {
+  	            console.error('Error checking lesson completion:', error);
+  	        }
+  	    }
+  	    
+  	    async function markLessonComplete() {
+  	        try {
+  	            const userData = JSON.parse(localStorage.getItem('userData'));
+  	            if (!userData || !userData.username) {
+  	                alert('Please log in to save your progress.');
+  	                return;
+  	            }
+  	            
+  	            const response = await fetch(`/api/users/${userData.username}/progress`, {
+  	                method: 'POST',
+  	                headers: {
+  	                    'Content-Type': 'application/json'
+  	                },
+  	                body: JSON.stringify({
+  	                    module: 'two-factor-authentication',
+  	                    lessonId: 'types-of-2fa'
+  	                })
+  	            });
+  	            
+  	            if (!response.ok) {
+  	                throw new Error('Failed to update progress');
+  	            }
+  	            
+  	            const result = await response.json();
+  	            userData.xp = result.xp;
+  	            userData.moduleProgress = result.moduleProgress;
+  	            localStorage.setItem('userData', JSON.stringify(userData));
+  	            transformToCompletionPage();
+  	            
+  	        } catch (error) {
+  	            console.error('Error marking lesson complete:', error);
+  	            alert('Failed to save progress. Please try again.');
+  	        }
+  	    }
+  	    
+  	    function transformToCompletionPage() {
+  	        // Hide the "Mark as Complete" button completely
+  	        const markCompleteBtn = document.querySelector('.mark-as-complete');
+  	        if (markCompleteBtn) {
+  	            markCompleteBtn.style.display = 'none';
+  	            markCompleteBtn.style.visibility = 'hidden';
+  	            markCompleteBtn.textContent = ''; // Clear the text content as well
+  	        }
+  	        
+  	        // Hide the blue background for mark as complete button
+  	        const markCompleteBg = document.getElementById('rectangle2');
+  	        if (markCompleteBg) {
+  	            markCompleteBg.style.display = 'none';
+  	            markCompleteBg.style.visibility = 'hidden';
+  	        }
+  	        
+  	        // Add "Completed" text with checkmark positioned where the button was (lowered to match new button position)
+  	        const completedText = document.createElement('b');
+  	        completedText.textContent = 'Completed';
+  	        completedText.style.cssText = `
+  	            position: absolute;
+  	            top: 726px;
+  	            left: 275px;
+  	            font-size: 15px;
+  	            color: #32de07;
+  	            width: 94px;
+  	            height: 21px;
+  	            z-index: 1000;
+  	        `;
+  	        document.querySelector('.on-click-lesson').appendChild(completedText);
+  	        
+  	        // Add checkmark icon (lowered to match new button position)
+  	        const checkIcon = document.createElement('img');
+  	        checkIcon.src = '/html/icons/Done_ring_round.svg';
+  	        checkIcon.style.cssText = `
+  	            position: absolute;
+  	            top: 726px;
+  	            left: 245px;
+  	            width: 24px;
+  	            height: 24px;
+  	            z-index: 1000;
+  	        `;
+  	        document.querySelector('.on-click-lesson').appendChild(checkIcon);
+  	        
+  	        // Create "Continue Learning" section
+  	        const continueSection = document.createElement('div');
+  	        continueSection.style.cssText = `
+  	            position: absolute;
+  	            top: 765px;
+  	            left: 18px;
+  	            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  	            border-radius: 10px;
+  	            background-color: #8bacff;
+  	            border: 2px solid #0065c3;
+  	            box-sizing: border-box;
+  	            width: 362px;
+  	            height: 55px;
+  	            cursor: pointer;
+  	        `;
+  	        continueSection.onclick = () => {
+  	            window.location.href = '/html/materials/setting-up-2fa-lesson.html';
+  	        };
+  	        document.querySelector('.on-click-lesson').appendChild(continueSection);
+  	        
+  	        // Add continue learning text
+  	        const continueText = document.createElement('div');
+  	        continueText.textContent = 'Continue Learning';
+  	        continueText.style.cssText = `
+  	            position: absolute;
+  	            top: 773px;
+  	            left: 75px;
+  	            font-size: 13px;
+  	            font-weight: 600;
+  	            color: #313131;
+  	            cursor: pointer;
+  	        `;
+  	        continueText.onclick = () => {
+  	            window.location.href = '/html/materials/setting-up-2fa-lesson.html';
+  	        };
+  	        document.querySelector('.on-click-lesson').appendChild(continueText);
+  	        
+  	        // Add "Move on to next lesson" text
+  	        const moveOnText = document.createElement('div');
+  	        moveOnText.textContent = 'Move on to the next lesson';
+  	        moveOnText.style.cssText = `
+  	            position: absolute;
+  	            top: 788px;
+  	            left: 75px;
+  	            font-size: 10px;
+  	            font-weight: 500;
+  	            color: #323232;
+  	            width: 144px;
+  	            cursor: pointer;
+  	        `;
+  	        moveOnText.onclick = () => {
+  	            window.location.href = '/html/materials/setting-up-2fa-lesson.html';
+  	        };
+  	        document.querySelector('.on-click-lesson').appendChild(moveOnText);
+  	        
+  	        // Add book icon for continue learning
+  	        const bookIconContainer = document.createElement('div');
+  	        bookIconContainer.style.cssText = `
+  	            position: absolute;
+  	            top: 775px;
+  	            left: 31px;
+  	            border-radius: 50%;
+  	            background-color: #3d8bff;
+  	            width: 32px;
+  	            height: 32px;
+  	            cursor: pointer;
+  	        `;
+  	        bookIconContainer.onclick = () => {
+  	            window.location.href = '/html/materials/setting-up-2fa-lesson.html';
+  	        };
+  	        
+  	        const bookIcon = document.createElement('img');
+  	        bookIcon.src = '/html/icons/Book_open_altdarkb.svg';
+  	        bookIcon.style.cssText = `
+  	            position: absolute;
+  	            top: 50%;
+  	            left: 50%;
+  	            transform: translate(-50%, -50%);
+  	            width: 24px;
+  	            height: 24px;
+  	        `;
+  	        bookIconContainer.appendChild(bookIcon);
+  	        document.querySelector('.on-click-lesson').appendChild(bookIconContainer);
+  	        
+  	        // Add arrow right icon
+  	        const arrowRight = document.createElement('img');
+  	        arrowRight.src = '/html/icons/Arrow_right.svg';
+  	        arrowRight.style.cssText = `
+  	            position: absolute;
+  	            top: 785px;
+  	            left: 330px;
+  	            width: 16px;
+  	            height: 16px;
+  	            cursor: pointer;
+  	        `;
+  	        arrowRight.onclick = () => {
+  	            window.location.href = '/html/materials/setting-up-2fa-lesson.html';
+  	        };
+  	        document.querySelector('.on-click-lesson').appendChild(arrowRight);
+  	    }
+  	</script>
+</body>
+</html> 

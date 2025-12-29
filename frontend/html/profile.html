@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="/html/css/profile.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Sans:wght@400;700&display=swap">
+        <title>Profile - HacknGo</title>
+        <style>
+            /* CSS for top 3 module progress bars */
+            
+            /* Progress Bar 1 */
+            #topModule1ProgressBar {
+                position: absolute;
+                top: 765px;
+                left: 40px;
+                border-radius: 6px;
+                background: linear-gradient(90deg, #ff82d9 1.92%, #af52de 48.08%, #a900ff);
+                width: 0px; /* Will be updated by JavaScript */
+                height: 6px;
+            }
+            
+            /* Progress Bar 2 */
+            #topModule2ProgressBar {
+                position: absolute;
+                top: 810px;
+                left: 40px;
+                border-radius: 6px;
+                background: linear-gradient(90deg, #ff82d9 1.92%, #af52de 48.08%, #a900ff);
+                width: 0px; /* Will be updated by JavaScript */
+                height: 6px;
+            }
+            
+            /* Progress Bar 3 */
+            #topModule3ProgressBar {
+                position: absolute;
+                top: 855px;
+                left: 40px;
+                border-radius: 6px;
+                background: linear-gradient(90deg, #ff82d9 1.92%, #af52de 48.08%, #a900ff);
+                width: 0px; /* Will be updated by JavaScript */
+                height: 6px;
+            }
+            
+            /* Background bars */
+            .top-module-bg-1 {
+                position: absolute;
+                top: 765px;
+                left: 40px;
+                border-radius: 6px;
+                background-color: #374778;
+                width: 289px;
+                height: 6px;
+            }
+            
+            .top-module-bg-2 {
+                position: absolute;
+                top: 810px;
+                left: 40px;
+                border-radius: 6px;
+                background-color: #374778;
+                width: 289px;
+                height: 6px;
+            }
+            
+            .top-module-bg-3 {
+                position: absolute;
+                top: 855px;
+                left: 40px;
+                border-radius: 6px;
+                background-color: #374778;
+                width: 289px;
+                height: 6px;
+            }
+            
+            /* Module names */
+            .top-module-name-1 {
+                position: absolute;
+                top: 745px;
+                left: 40px;
+                font-size: 11px;
+                display: inline-block;
+                text-align: left;
+                width: 200px;
+                height: 16px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            
+            .top-module-name-2 {
+                position: absolute;
+                top: 790px;
+                left: 40px;
+                font-size: 11px;
+                display: inline-block;
+                text-align: left;
+                width: 200px;
+                height: 16px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            
+            .top-module-name-3 {
+                position: absolute;
+                top: 835px;
+                left: 40px;
+                font-size: 11px;
+                display: inline-block;
+                text-align: left;
+                width: 200px;
+                height: 16px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            
+            /* Percentages */
+            .top-module-percentage-1 {
+                position: absolute;
+                top: 745px;
+                left: 290px;
+                font-size: 11px;
+                display: inline-block;
+                width: 40px;
+                height: 16px;
+                font-weight: 600;
+                text-align: right;
+                line-height: 16px;
+            }
+            
+            .top-module-percentage-2 {
+                position: absolute;
+                top: 790px;
+                left: 290px;
+                font-size: 11px;
+                display: inline-block;
+                width: 40px;
+                height: 16px;
+                font-weight: 600;
+                text-align: right;
+                line-height: 16px;
+            }
+            
+            .top-module-percentage-3 {
+                position: absolute;
+                top: 835px;
+                left: 290px;
+                font-size: 11px;
+                display: inline-block;
+                width: 40px;
+                height: 16px;
+                font-weight: 600;
+                text-align: right;
+                line-height: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="phone-frame">
+            <div class="profile">
+                <!-- Progress Section - Top 3 Modules -->
+                <div class="profile-child"></div>
+                <div class="profile-item"></div>
+                <div class="profile-inner"></div>
+                
+                <!-- Top Module 1 -->
+                <div class="top-module-bg-1"></div>
+                <div id="topModule1ProgressBar"></div>
+                <b class="top-module-name-1">Loading...</b>
+                <div class="top-module-percentage-1">0%</div>
+                
+                <!-- Top Module 2 -->
+                <div class="top-module-bg-2"></div>
+                <div id="topModule2ProgressBar"></div>
+                <b class="top-module-name-2">Loading...</b>
+                <div class="top-module-percentage-2">0%</div>
+                
+                <!-- Top Module 3 -->
+                <div class="top-module-bg-3"></div>
+                <div id="topModule3ProgressBar"></div>
+                <b class="top-module-name-3">Loading...</b>
+                <div class="top-module-percentage-3">0%</div>
+                
+                <b class="progress">Progress</b>
+
+                <!-- Achievement Section -->
+                <div class="profile-child5"></div>
+                <div class="profile-child6"></div>
+                <b class="view-all-achievements">View All Achievements</b>
+                <div class="profile-child7" id="rectangle10"></div>
+                
+                <!-- User Stats -->
+                <b class="sign-out" id="signOutBtn">Sign Out</b>
+                <div class="current-streak">Current Streak</div>
+                <div class="first-lesson">First Lesson</div>
+                <div class="perfect-quiz">Perfect Quiz</div>
+                <div class="day-streak" id="userStreak">3 Day Streak</div>
+                <div class="module-master">Module Master</div>
+                
+                <!-- User Achievements -->
+                <div class="security-expert">Security Expert</div>
+                <div class="quiz-champion">Quiz Champion</div>
+                <div class="completed-lessons">Completed Lessons</div>
+                <div class="total-xp">Total XP</div>
+                <b class="b" id="currentStreakCount">0</b>
+                <div class="quizzes-taken">Quizzes Taken</div>
+                <b class="b1" id="quizzesTakenCount">0</b>
+                <b class="b2" id="modulesCompletedCount">2/5</b>
+                <b class="b3" id="totalXP">0</b>
+                <div class="level-5" id="userLevel">Level #1</div>
+                <div class="div3">65%</div>
+
+                <!-- Navigation Section -->
+                <div class="profile-child8"></div>
+                <div class="profile-child9"></div>
+                <div class="ellipse-div">
+				<img class="view-light-icon" alt="" src="/html/icons/View_light.svg">
+				<div class="profile-child10">
+					<b class="b4">5</b>
+				</div>
+				
+				</div>
+               
+                <div class="profile-child11"></div>
+                
+                <!-- Navigation Links -->
+                <div class="home">Home</div>
+                <div class="learn">Learn</div>
+                <div class="practice">Practice</div>
+                <div class="profile1">Profile</div>
+                <div class="leaderboard">Leaderboard</div>
+                
+                <!-- Navigation Icons -->
+                <img class="home-icon" alt="" src="/html/icons/Homepurp.svg">
+                <img class="book-open-alt-icon" alt="" src="/html/icons/Book_open_alt.svg" id="bookOpenAltIcon">
+                <img class="atom-alt-icon" alt="" src="/html/icons/Atom_alt.svg" id="atomAltIcon">
+                <img class="trophy-icon" alt="" src="/html/icons/Trophy.svg" id="trophyIcon">
+                <img class="user-icon" alt="" src="/html/icons/Userred.svg" id="userIcon">
+                
+                <!-- Profile Headers -->
+                <b class="profile2">Profile</b>
+                <b class="stats">Stats</b>
+                <b class="achievements">Achievements</b>
+                
+                <!-- Additional UI Elements -->
+                <div class="profile-child12"></div>
+                <div class="profile-child13"></div>
+                <div class="profile-child14"></div>
+                <div class="profile-child15"></div>
+                <img class="trophy-icon1" alt="" src="/html/icons/Trophyblack.svg">
+                <div class="profile-child16"></div>
+                <div class="profile-child17"></div>
+                <b class="cyber-ninja" id="username">Cyber Ninja</b>
+                
+                
+                <!-- Achievement Icons -->
+                <img class="book-open-icon" alt="" src="/html/icons/Book_openblue.png">
+                <img class="done-ring-round-icon" alt="" src="/html/icons/Done_ring_roundblue.png">
+                <img class="fire-icon" alt="" src="/html/icons/Fireblue.svg">
+                <img class="chield-icon" alt="" src="/html/icons/Chieldblack.svg">
+                <img class="mortarboard-icon" alt="" src="/html/icons/Mortarboard.svg">
+            </div>
+        </div>
+
+        <!-- Navigation JavaScript -->
+        <script src="/html/js/profile-navigation.js"></script>
+        
+        <!-- Profile Data JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', async function() {
+                // Load user data from localStorage
+                const userData = localStorage.getItem('userData');
+                const userEmail = localStorage.getItem('userEmail');
+                
+                // Set default values first
+                document.getElementById('currentStreakCount').textContent = '0';
+                document.getElementById('quizzesTakenCount').textContent = '0';
+                document.getElementById('totalXP').textContent = '0';
+                document.getElementById('userStreak').textContent = '0 Day Streak';
+                document.getElementById('userLevel').textContent = 'Level #1';
+                
+                if (userData) {
+                    try {
+                        const user = JSON.parse(userData);
+                        
+                        // Update username
+                        const usernameElement = document.getElementById('username');
+                        if (usernameElement && user.username) {
+                            usernameElement.textContent = user.username;
+                        }
+                        
+                        // Update XP
+                        const xpElement = document.getElementById('totalXP');
+                        if (xpElement && user.xp !== undefined) {
+                            xpElement.textContent = user.xp;
+                        }
+                        
+                        // Update streak
+                        const streakElement = document.getElementById('userStreak');
+                        if (streakElement && user.streak !== undefined) {
+                            streakElement.textContent = user.streak + ' Day Streak';
+                        }
+                        
+                        // Update completed lessons count
+                        const lessonsElement = document.getElementById('modulesCompletedCount');
+                        if (lessonsElement && user.completedLessons) {
+                            lessonsElement.textContent = user.completedLessons.length;
+                        }
+                        
+                        // Update quizzes taken count
+                        const quizzesElement = document.getElementById('quizzesTakenCount');
+                        if (quizzesElement && user.completedQuizzes) {
+                            quizzesElement.textContent = user.completedQuizzes.length;
+                        }
+                        
+                        // Calculate and update level based on XP
+                        const levelElement = document.getElementById('userLevel');
+                        if (levelElement && user.xp !== undefined) {
+                            const level = Math.floor(user.xp / 100) + 1; // 100 XP per level
+                            levelElement.textContent = 'Level #' + level;
+                        }
+                        
+                        // Validate and update modules completed counter
+                        validateModulesCompleted(user.username);
+                        
+                        // Validate and update quizzes taken counter
+                        await validateQuizzesTaken(user.username);
+                        
+                        // Validate and update daily streak
+                        await validateDailyStreak(user.username);
+                        
+                        // Validate and update profile progress bars
+                        await validateProfileProgressBars(user.username);
+
+                        await validateUserXp(user.xp);
+                        
+                        console.log('Profile updated with user data:', user);
+                        
+                    } catch (error) {
+                        console.error('Error parsing user data:', error);
+                    }
+                } else if (userEmail) {
+                    // If no full user data but we have email, show a generic username
+                    const usernameElement = document.getElementById('username');
+                    if (usernameElement) {
+                        usernameElement.textContent = userEmail.split('@')[0]; // Use part before @ as username
+                    }
+                } else {
+                    // No user data found, redirect to login
+                    console.log('No user data found, redirecting to login');
+                    window.location.href = '/html/sign-in.html';
+                }
+                
+                // Handle sign out
+                const signOutBtn = document.getElementById('signOutBtn');
+                if (signOutBtn) {
+                    signOutBtn.addEventListener('click', function() {
+                        // Clear all user data
+                        localStorage.removeItem('userData');
+                        localStorage.removeItem('userEmail');
+                        localStorage.removeItem('loginSuccess');
+                        
+                        // Redirect to sign in page
+                        window.location.href = '/html/sign-in.html';
+                    });
+                }
+            });
+        </script>
+        
+        <!-- Module Completion Validation System -->
+        <script>
+            // Function to validate and update modules completed counter
+            async function validateModulesCompleted(username) {
+                try {
+                    // Fetch user progress from backend
+                    const response = await fetch(`/api/users/${username}/progress`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user progress');
+                    }
+                    
+                    const progressData = await response.json();
+                    const moduleProgress = progressData.moduleProgress;
+                    
+                    // Count modules with 100% completion
+                    const completedModulesCount = countCompletedModules(moduleProgress);
+                    const totalModules = 6; // Total number of modules
+                    
+                    // Update the modules completed display
+                    updateModulesCompletedDisplay(completedModulesCount, totalModules);
+                    
+                    console.log(`Modules validation: ${completedModulesCount}/${totalModules} modules completed`);
+                    
+                } catch (error) {
+                    console.error('Error validating modules completed:', error);
+                    // Set default values on error
+                    updateModulesCompletedDisplay(0, 6);
+                }
+            }
+            
+            // Function to count modules with 100% completion
+            function countCompletedModules(moduleProgress) {
+                let completedCount = 0;
+                
+                // Define all available modules
+                const modules = [
+                    'owasp',
+                    'iso27001', 
+                    'password-security',
+                    'data-protection',
+                    'two-factor-authentication',
+                    'phishing-awareness'
+                ];
+                
+                // Check each module for 100% completion
+                modules.forEach(moduleKey => {
+                    if (moduleProgress[moduleKey] && moduleProgress[moduleKey].progressPercentage === 100) {
+                        completedCount++;
+                        console.log(`Module ${moduleKey} is 100% complete`);
+                    } else if (moduleProgress[moduleKey]) {
+                        console.log(`Module ${moduleKey} is ${moduleProgress[moduleKey].progressPercentage}% complete`);
+                    }
+                });
+                
+                return completedCount;
+            }
+            
+            // Function to update the modules completed display
+            function updateModulesCompletedDisplay(completedCount, totalCount) {
+                const modulesCompletedElement = document.querySelector('.b2');
+                if (modulesCompletedElement) {
+                    modulesCompletedElement.textContent = `${completedCount}/${totalCount}`;
+                    console.log(`Updated modules completed display: ${completedCount}/${totalCount}`);
+                }
+            }
+            
+            // Function to validate and update quizzes taken counter
+            async function validateQuizzesTaken(username) {
+                try {
+                    // Fetch user profile data from backend (includes completedQuizzes)
+                    const response = await fetch(`/user/${username}/profile`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user profile');
+                    }
+                    
+                    const profileData = await response.json();
+                    const completedQuizzes = profileData.completedQuizzes || [];
+                    
+                    // Count the actual number of quizzes taken
+                    const quizzesTakenCount = completedQuizzes.length;
+                    
+                    // Update the quizzes taken display
+                    updateQuizzesTakenDisplay(quizzesTakenCount);
+                    
+                    console.log(`Quizzes validation: ${quizzesTakenCount} quizzes completed`);
+                    console.log('Completed quizzes:', completedQuizzes);
+                    
+                } catch (error) {
+                    console.error('Error validating quizzes taken:', error);
+                    // Set default value on error
+                    updateQuizzesTakenDisplay(0);
+                }
+            }
+            
+            // Function to update the quizzes taken display
+            function updateQuizzesTakenDisplay(quizzesTakenCount) {
+                const quizzesElement = document.getElementById('quizzesTakenCount');
+                if (quizzesElement) {
+                    quizzesElement.textContent = quizzesTakenCount;
+                    console.log(`Updated quizzes taken display: ${quizzesTakenCount}`);
+                }
+            }
+
+            async function validateUserXp(username) {
+                try {
+                    const response = await fetch(`/user/${username}/profile`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user profile');
+                    }
+                    
+                    const profileData = await response.json();
+                    const userXp = profileData.xp || 0;
+                    
+                    // Update the XP display
+                    updateUserXp(userXp);
+                    
+                    console.log(`User XP: ${userXp}`);
+                } catch (error) {
+                    console.error('Error validating user XP:', error);
+                    // Set default value on error
+                    updateUserXp(0);
+                }
+            }
+
+            function updateUserXp(userXp) {
+                const xpElement = document.getElementById('userXp');
+                if (xpElement) {
+                    xpElement.textContent = userXp;
+                    console.log(`Updated user XP display: ${userXp}`);
+                }
+            }
+            // Function to validate and update daily streak
+            async function validateDailyStreak(username) {
+                try {
+                    // Fetch current streak from backend
+                    const response = await fetch(`/api/users/${username}/streak`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch streak data');
+                    }
+                    
+                    const streakData = await response.json();
+                    const currentStreak = streakData.streak;
+                    
+                    // Update the streak display
+                    updateStreakDisplay(currentStreak);
+                    
+                    console.log(`Streak validation: ${currentStreak} day streak`);
+                    console.log('Last activity date:', streakData.lastActivityDate);
+                    
+                } catch (error) {
+                    console.error('Error validating daily streak:', error);
+                    // Set default value on error
+                    updateStreakDisplay(0);
+                }
+            }
+            
+            // Function to update the streak display
+            function updateStreakDisplay(streakCount) {
+                const streakElement = document.getElementById('userStreak');
+                if (streakElement) {
+                    const streakText = streakCount === 1 ? '1 Day Streak' : `${streakCount} Day Streak`;
+                    streakElement.textContent = streakText;
+                    console.log(`Updated streak display: ${streakText}`);
+                }
+                
+                // Update the purple streak number (.b class element)
+                // This is the big purple number under "Current Streak"
+                const purpleStreakElement = document.querySelector('.b');
+                if (purpleStreakElement && purpleStreakElement.id !== 'currentStreakCount') {
+                    purpleStreakElement.textContent = streakCount;
+                    console.log(`Updated purple streak number: ${streakCount}`);
+                }
+                
+                // Update the current streak count element
+                const currentStreakElement = document.getElementById('currentStreakCount');
+                if (currentStreakElement) {
+                    currentStreakElement.textContent = streakCount;
+                    console.log(`Updated current streak count: ${streakCount}`);
+                }
+            }
+            
+            // Function to validate and update profile progress bars
+            async function validateProfileProgressBars(username) {
+                try {
+                    // Fetch user progress from backend
+                    const response = await fetch(`/api/users/${username}/progress`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user progress');
+                    }
+                    
+                    const progressData = await response.json();
+                    const moduleProgress = progressData.moduleProgress;
+                    
+                    // Define all modules with their display names
+                    const allModules = [
+                        { key: 'owasp', name: 'OWASP Top 10' },
+                        { key: 'iso27001', name: 'ISO/IEC 27001' },
+                        { key: 'password-security', name: 'Password Security' },
+                        { key: 'data-protection', name: 'Data Protection' },
+                        { key: 'two-factor-authentication', name: 'Two-Factor Auth' },
+                        { key: 'phishing-awareness', name: 'Phishing Awareness' }
+                    ];
+                    
+                    // Get progress for each module and sort by highest progress
+                    const modulesWithProgress = allModules.map(module => ({
+                        ...module,
+                        progress: moduleProgress[module.key] ? moduleProgress[module.key].progressPercentage : 0
+                    })).sort((a, b) => b.progress - a.progress);
+                    
+                    // Take top 3 modules
+                    const top3Modules = modulesWithProgress.slice(0, 3);
+                    
+                    // Update the top 3 progress bars
+                    top3Modules.forEach((module, index) => {
+                        updateTopModuleProgressBar(index + 1, module.name, module.progress);
+                    });
+                    
+                    console.log('Top 3 modules with highest progress:', top3Modules);
+                    
+                } catch (error) {
+                    console.error('Error validating profile progress bars:', error);
+                    // Set default values on error
+                    updateTopModuleProgressBar(1, 'No Data', 0);
+                    updateTopModuleProgressBar(2, 'No Data', 0);
+                    updateTopModuleProgressBar(3, 'No Data', 0);
+                }
+            }
+            
+            // Function to update a top module progress bar
+            function updateTopModuleProgressBar(position, moduleName, progressPercentage) {
+                // Update progress bar width
+                const progressBar = document.getElementById(`topModule${position}ProgressBar`);
+                if (progressBar) {
+                    const maxWidth = 289; // Same as background width
+                    const newWidth = (progressPercentage / 100) * maxWidth;
+                    progressBar.style.width = `${newWidth}px`;
+                    console.log(`Updated top module ${position} progress bar: ${newWidth}px (${progressPercentage}%)`);
+                }
+                
+                // Update module name
+                const nameElement = document.querySelector(`.top-module-name-${position}`);
+                if (nameElement) {
+                    nameElement.textContent = moduleName;
+                    console.log(`Updated top module ${position} name: ${moduleName}`);
+                }
+                
+                // Update percentage text
+                const percentageElement = document.querySelector(`.top-module-percentage-${position}`);
+                if (percentageElement) {
+                    percentageElement.textContent = `${progressPercentage}%`;
+                    console.log(`Updated top module ${position} percentage: ${progressPercentage}%`);
+                }
+            }
+        </script>
+    </body>
+</html>

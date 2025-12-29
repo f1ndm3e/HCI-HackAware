@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet" href="/html/css/on-click-module.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Sans:wght@400;700&display=swap" />
+  	
+  	<title>Two-Factor Authentication - HacknGo</title>
+  	
+  	<style>
+  	    /* Change blue/colored icon backgrounds to light green */
+  	    .ellipse-div,
+  	    .on-click-module-child3,
+  	    .on-click-module-child5,
+  	    .on-click-module-child7 {
+  	        background-color: #f0f9f0 !important; /* Light green background */
+  	        display: flex !important;
+  	        align-items: center !important;
+  	        justify-content: center !important;
+  	    }
+  	    
+  	    /* Center all lesson icons */
+  	    .check-ring-icon,
+  	    .lock-icon,
+  	    .lock-icon1,
+  	    .lock-icon2 {
+  	        display: block;
+  	        margin: auto;
+  	    }
+  	    
+  	    /* Next available lesson styling */
+  	    .next-available-lesson {
+  	        border: 2px solid #06AD0B !important;
+  	        border-radius: 10px !important;
+  	    }
+  	    
+  	    /* Spacing between lessons - match OWASP layout */
+  	    .on-click-module-child1 { top: 150px !important; }
+  	    .on-click-module-child2 { top: 215px !important; }
+  	    .on-click-module-child4 { top: 280px !important; }
+  	    .on-click-module-child6 { top: 345px !important; }
+  	    
+  	    /* Adjust lesson titles to match new box positions */
+  	    .password-security1 { top: 162px !important; } /* Lesson 1 title: box + 12px */
+  	    .common-password-mistakes { top: 227px !important; } /* Lesson 2 title: box + 12px */
+  	    .password-strength-quiz { top: 292px !important; } /* Lesson 3 title: box + 12px */
+  	    .password-managers { top: 357px !important; } /* Lesson 4 title: box + 12px */
+  	    
+  	    /* Adjust "Lesson" labels to match new box positions */
+  	    .lesson { top: 179px !important; } /* Lesson 1 label: box + 29px */
+  	    .lesson1 { top: 244px !important; } /* Lesson 2 label: box + 29px */
+  	    .quiz { top: 309px !important; } /* Lesson 3 label: box + 29px */
+  	    .lesson2 { top: 374px !important; } /* Lesson 4 label: box + 29px */
+  	    
+  	    /* Adjust icon backgrounds to match new box positions */
+  	    .ellipse-div { top: 165px !important; } /* Lesson 1 icon bg: box + 15px */
+  	    .on-click-module-child3 { top: 230px !important; } /* Lesson 2 icon bg: box + 15px */
+  	    .on-click-module-child5 { top: 295px !important; } /* Lesson 3 icon bg: box + 15px */
+  	    .on-click-module-child7 { top: 360px !important; } /* Lesson 4 icon bg: box + 15px */
+  	    
+  	    /* Adjust icons to match new positions */
+  	    .check-ring-icon { top: 168px !important; } /* Lesson 1 icon: box + 18px */
+  	    .lock-icon { top: 233px !important; } /* Lesson 2 icon: box + 18px */
+  	    .lock-icon1 { top: 298px !important; } /* Lesson 3 icon: box + 18px */
+  	    .lock-icon2 { top: 363px !important; } /* Lesson 4 icon: box + 18px */
+  	    
+  	    /* Improved hitbox styling - make all lesson elements clickable */
+  	    .lesson-clickable {
+  	        cursor: pointer !important;
+  	    }
+  	    
+  	    .lesson-locked {
+  	        cursor: not-allowed !important;
+  	    }
+  	    
+  	    /* Make lesson titles, labels, and icons clickable */
+  	    .password-security1,
+  	    .common-password-mistakes,
+  	    .password-strength-quiz,
+  	    .password-managers,
+  	    .lesson,
+  	    .lesson1,
+  	    .quiz,
+  	    .lesson2,
+  	    .ellipse-div,
+  	    .on-click-module-child3,
+  	    .on-click-module-child5,
+  	    .on-click-module-child7,
+  	    .check-ring-icon,
+  	    .lock-icon,
+  	    .lock-icon1,
+  	    .lock-icon2 {
+  	        cursor: pointer;
+  	        transition: opacity 0.2s ease;
+  	    }
+  	    
+  	    /* Hover effects for better user feedback */
+  	    .lesson-clickable:hover {
+  	        opacity: 0.8;
+  	    }
+  	    
+  	    /* Hover effects for all accessible lesson elements */
+  	    .password-security1:hover,
+  	    .common-password-mistakes:hover,
+  	    .password-strength-quiz:hover,
+  	    .password-managers:hover,
+  	    .lesson:hover,
+  	    .lesson1:hover,
+  	    .quiz:hover,
+  	    .lesson2:hover,
+  	    .ellipse-div:hover,
+  	    .on-click-module-child3:hover,
+  	    .on-click-module-child5:hover,
+  	    .on-click-module-child7:hover,
+  	    .check-ring-icon:hover,
+  	    .lock-icon:hover,
+  	    .lock-icon1:hover,
+  	    .lock-icon2:hover {
+  	        opacity: 0.8 !important;
+  	    }
+  	    
+  	    /* Disable hover for locked lessons */
+  	    .lesson-locked:hover {
+  	        opacity: 0.6 !important;
+  	    }
+  	</style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="on-click-module">
+    		<div class="on-click-module-child">
+    		</div>
+    		<div class="on-click-module-item">
+    		</div>
+    		<div class="on-click-module-inner">
+    		</div>
+    		<div class="complete">0% Complete</div>
+    		<div class="lessons">0/4</div>
+    		<div class="learn-how-to">Add an extra layer of security to your accounts</div>
+    		<div class="rectangle-div">
+    		</div>
+    		<div class="home">Home</div>
+    		<div class="learn">Learn</div>
+    		<div class="practice">Practice</div>
+    		<div class="profile">Profile</div>
+    		<div class="leaderboard">Leaderboard</div>
+    		<img class="home-icon" alt="" src="/html/icons/Homepurp.svg" id="homeIcon">
+    		
+    		<img class="book-open-alt-icon" alt="" src="/html/icons/Book_open_altred.svg" id="bookOpenAltIcon">
+    		
+    		<img class="atom-alt-icon" alt="" src="/html/icons/Atom_alt.svg" id="atomAltIcon">
+    		
+    		<img class="trophy-icon" alt="" src="/html/icons/Trophy.svg" id="trophyIcon">
+    		
+    		<img class="user-icon" alt="" src="/html/icons/User.svg" id="userIcon">
+    		
+    		<b class="password-security">Two-Factor Authentication</b>
+    		<div class="on-click-module-child1" id="lesson1">
+    		</div>
+    		<b class="password-security1">What is 2FA?</b>
+    		<div class="lesson">Lesson</div>
+    		<div class="ellipse-div">
+    		</div>
+    		<img class="check-ring-icon" alt="" src="/html/icons/Check_ring.svg">
+    		
+    		<div class="on-click-module-child2" id="lesson2">
+    		</div>
+    		<b class="common-password-mistakes">Types of 2FA</b>
+    		<div class="lesson1">Lesson</div>
+    		<div class="on-click-module-child3">
+    		</div>
+    		<img class="lock-icon" alt="" src="/html/icons/Group 8grey.svg">
+    		
+    		<div class="on-click-module-child4" id="lesson3">
+    		</div>
+    		<b class="password-strength-quiz">Setting Up 2FA</b>
+    		<div class="quiz">Lesson</div>
+    		<div class="on-click-module-child5">
+    		</div>
+    		<img class="lock-icon1" alt="" src="/html/icons/Group 8grey.svg">
+    		
+    		<div class="on-click-module-child6" id="lesson4">
+    		</div>
+    		<b class="password-managers">2FA Best Practices</b>
+    		<div class="lesson2">Lesson</div>
+    		<div class="on-click-module-child7">
+    		</div>
+    		<img class="lock-icon2" alt="" src="/html/icons/Group 8grey.svg">
+    		
+    		<img class="arrow-left-icon" alt="" src="/html/icons/Arrow_left.svg" id="backButton">
+    		
+  	</div>
+  </div>
+  	
+  	<!-- Navigation JavaScript -->
+  	<script>
+  	    document.addEventListener('DOMContentLoaded', function() {
+  	        // Load user progress on page load
+  	        loadUserProgress();
+  	        
+  	        // Back button
+  	        document.getElementById('backButton').addEventListener('click', () => {
+  	            window.location.href = '/html/learning.html';
+  	        });
+  	        
+  	        // Navigation clicks
+  	        document.getElementById('homeIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/home.html';
+  	        });
+  	        
+  	        document.getElementById('bookOpenAltIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/learning.html';
+  	        });
+  	        
+  	        document.getElementById('atomAltIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/practice.html';
+  	        });
+  	        
+  	        document.getElementById('trophyIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/leaderboard.html';
+  	        });
+  	        
+  	        document.getElementById('userIcon').addEventListener('click', () => {
+  	            window.location.href = '/html/profile.html';
+  	        });
+  	    });
+  	    
+  	    // Function to load user progress
+  	    async function loadUserProgress() {
+  	        try {
+  	            const userData = JSON.parse(localStorage.getItem('userData'));
+  	            if (!userData || !userData.username) {
+  	                console.log('No user data found');
+  	                return;
+  	            }
+  	            
+  	            // Fetch user progress from backend
+  	            const response = await fetch(`/api/users/${userData.username}/progress`);
+  	            if (!response.ok) {
+  	                throw new Error('Failed to fetch user progress');
+  	            }
+  	            
+  	            const progressData = await response.json();
+  	            const tfaProgress = progressData.moduleProgress['two-factor-authentication'] || { progressPercentage: 0, completedLessons: [], totalLessons: 4 };
+  	            
+  	            // Update progress display
+  	            updateProgressDisplay(tfaProgress);
+  	            updateIconsFromProgress(tfaProgress);
+  	            
+  	        } catch (error) {
+  	            console.error('Error loading user progress:', error);
+  	        }
+  	    }
+  	    
+  	    // Function to update progress display
+  	    function updateProgressDisplay(tfaProgress) {
+  	        // Update progress percentage text
+  	        const completeElement = document.querySelector('.complete');
+  	        if (completeElement) {
+  	            completeElement.textContent = `${tfaProgress.progressPercentage}% Complete`;
+  	        }
+  	        
+  	        // Update lesson counter
+  	        const lessonsElement = document.querySelector('.lessons');
+  	        if (lessonsElement) {
+  	            lessonsElement.textContent = `${tfaProgress.completedLessons.length}/${tfaProgress.totalLessons}`;
+  	        }
+  	        
+  	        // Update progress bar width
+  	        const progressBar = document.querySelector('.on-click-module-inner');
+  	        if (progressBar) {
+  	            const maxWidth = 329; // Same as background progress bar
+  	            const newWidth = (tfaProgress.progressPercentage / 100) * maxWidth;
+  	            progressBar.style.width = `${newWidth}px`;
+  	        }
+  	    }
+  	    
+  	    // Function to update icons based on progress
+  	    function updateIconsFromProgress(tfaProgress) {
+  	        const lessonMapping = {
+  	            'what-is-2fa': 1,
+  	            'types-of-2fa': 2,
+  	            'setting-up-2fa': 3,
+  	            '2fa-best-practices': 4
+  	        };
+  	        
+  	        const completedLessons = tfaProgress.completedLessons || [];
+  	        
+  	        // Find next available lesson
+  	        let nextAvailableLesson = 1;
+  	        for (let i = 1; i <= 4; i++) {
+  	            const lessonId = Object.keys(lessonMapping).find(key => lessonMapping[key] === i);
+  	            if (!completedLessons.includes(lessonId)) {
+  	                nextAvailableLesson = i;
+  	                break;
+  	            }
+  	            if (i === 4 && completedLessons.includes(lessonId)) {
+  	                nextAvailableLesson = 5; // All completed
+  	            }
+  	        }
+  	        
+  	        // Update lesson icons and click handlers
+  	        for (let i = 1; i <= 4; i++) {
+  	            const lessonId = Object.keys(lessonMapping).find(key => lessonMapping[key] === i);
+  	            const lessonElement = document.getElementById(`lesson${i}`);
+  	            
+  	            if (completedLessons.includes(lessonId)) {
+  	                // Completed lesson - green checkmark
+  	                updateLessonIcon(i, '/html/icons/Check_ring.svg');
+  	                setLessonCursor(i, 'pointer', true);
+  	                lessonElement.classList.remove('next-available-lesson');
+  	                addLessonClickHandlers(i, () => navigateToLesson(lessonId));
+  	            } else if (i === nextAvailableLesson) {
+  	                // Next available lesson - book icon with highlighting
+  	                updateLessonIcon(i, '/html/icons/Book_openblue.svg');
+  	                setLessonCursor(i, 'pointer', true);
+  	                lessonElement.classList.add('next-available-lesson');
+  	                addLessonClickHandlers(i, () => navigateToLesson(lessonId));
+  	            } else {
+  	                // Locked lesson - grey lock
+  	                updateLessonIcon(i, '/html/icons/Group 8grey.svg');
+  	                lessonElement.style.cursor = 'not-allowed';
+  	                lessonElement.classList.remove('next-available-lesson');
+  	                lessonElement.onclick = () => showLockedMessage();
+  	            }
+  	        }
+  	    }
+  	    
+  	    function updateLessonIcon(lessonNumber, iconSrc) {
+  	        let iconElement;
+  	        if (lessonNumber === 1) {
+  	            iconElement = document.querySelector('.check-ring-icon');
+  	        } else if (lessonNumber === 2) {
+  	            iconElement = document.querySelector('.lock-icon');
+  	        } else if (lessonNumber === 3) {
+  	            iconElement = document.querySelector('.lock-icon1');
+  	        } else if (lessonNumber === 4) {
+  	            iconElement = document.querySelector('.lock-icon2');
+  	        }
+  	        
+  	        if (iconElement) {
+  	            iconElement.src = iconSrc;
+  	        }
+  	    }
+  	    
+  	    function navigateToLesson(lessonId) {
+  	        const lessonUrls = {
+  	            'what-is-2fa': '/html/materials/what-is-2fa-lesson.html',
+  	            'types-of-2fa': '/html/materials/types-of-2fa-lesson.html',
+  	            'setting-up-2fa': '/html/materials/setting-up-2fa-lesson.html',
+  	            '2fa-best-practices': '/html/materials/2fa-best-practices-lesson.html'
+  	        };
+  	        
+  	        window.location.href = lessonUrls[lessonId];
+  	    }
+  	    
+  	    function showLockedMessage() {
+  	        alert('This lesson is locked. Complete the previous lessons to unlock it!');
+  	    }
+  	    
+  	    // Function to add click handlers to all lesson elements
+  	    function addLessonClickHandlers(lessonNumber, clickHandler) {
+  	        // Get all elements for this lesson
+  	        const elements = getLessonElements(lessonNumber);
+  	        
+  	        // Add click handler to all elements
+  	        elements.forEach(element => {
+  	            if (element) {
+  	                element.addEventListener('click', clickHandler);
+  	            }
+  	        });
+  	    }
+  	    
+  	    // Function to get all clickable elements for a lesson
+  	    function getLessonElements(lessonNumber) {
+  	        const elements = [];
+  	        
+  	        // Add lesson box
+  	        elements.push(document.getElementById(`lesson${lessonNumber}`));
+  	        
+  	        if (lessonNumber === 1) {
+  	            elements.push(document.querySelector('.password-security1')); // title
+  	            elements.push(document.querySelector('.lesson')); // label
+  	            elements.push(document.querySelector('.ellipse-div')); // icon background
+  	            elements.push(document.querySelector('.check-ring-icon')); // icon
+  	        } else if (lessonNumber === 2) {
+  	            elements.push(document.querySelector('.common-password-mistakes')); // title
+  	            elements.push(document.querySelector('.lesson1')); // label
+  	            elements.push(document.querySelector('.on-click-module-child3')); // icon background
+  	            elements.push(document.querySelector('.lock-icon')); // icon
+  	        } else if (lessonNumber === 3) {
+  	            elements.push(document.querySelector('.password-strength-quiz')); // title
+  	            elements.push(document.querySelector('.quiz')); // label
+  	            elements.push(document.querySelector('.on-click-module-child5')); // icon background
+  	            elements.push(document.querySelector('.lock-icon1')); // icon
+  	        } else if (lessonNumber === 4) {
+  	            elements.push(document.querySelector('.password-managers')); // title
+  	            elements.push(document.querySelector('.lesson2')); // label
+  	            elements.push(document.querySelector('.on-click-module-child7')); // icon background
+  	            elements.push(document.querySelector('.lock-icon2')); // icon
+  	        }
+  	        
+  	        return elements.filter(el => el !== null);
+  	    }
+  	    
+  	    // Function to set cursor style for all lesson elements
+  	    function setLessonCursor(lessonNumber, cursorStyle, isClickable = true) {
+  	        const elements = getLessonElements(lessonNumber);
+  	        elements.forEach(element => {
+  	            if (element) {
+  	                element.style.cursor = cursorStyle;
+  	                if (isClickable) {
+  	                    element.classList.add('lesson-clickable');
+  	                    element.classList.remove('lesson-locked');
+  	                } else {
+  	                    element.classList.add('lesson-locked');
+  	                    element.classList.remove('lesson-clickable');
+  	                }
+  	            }
+  	        });
+  	    }
+  	</script>
+</body>
+</html> 
