@@ -98,10 +98,13 @@
     "username": "test",
     "email": "test@test.com",
     "password": "$2b$10$AdJD0sNECqneaDP0wYPsseDjN/OTPMGSOO0gx6EdQPkIT36zDMEaq",
-    "xp": 1800,
-    "streak": 0,
+    "xp": 2030,
+    "streak": 1,
     "completedLessons": [],
-    "completedQuizzes": [],
+    "completedQuizzes": [
+      "improper-credential-usage",
+      "supply-chain-security"
+    ],
     "achievements": [],
     "createdAt": "2025-05-25T10:50:15.083Z",
     "moduleProgress": {
@@ -177,7 +180,10 @@
         "totalLessons": 6,
         "progressPercentage": 100
       }
-    }
+    },
+    "quizzesTaken": 3,
+    "lastActivityDate": "2025-12-29",
+    "lastActivity": "2025-12-29T15:33:18.350Z"
   },
   {
     "username": "dar",

@@ -509,7 +509,7 @@
         }
 
         // Update user stats
-        function updateUserStats(xpEarned) {
+        async function updateUserStats(xpEarned) {
             try {
                 const currentUser = JSON.parse(localStorage.getItem('userData'));
                 if (currentUser) {
@@ -519,18 +519,32 @@
                     localStorage.setItem('userData', JSON.stringify(currentUser));
                     
                     // Update backend (optional - for persistence)
-                    fetch('/api/users/update-stats', {
-                        method: 'POST',
-                        headers: {
+                    try {
+                        const res = await fetch('/api/users/update-stats', {
+                            method: 'POST',
+                            headers: {
                             'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
+                            },
+                            body: JSON.stringify({
                             email: currentUser.email,
                             xpEarned: xpEarned,
-                            quizCompleted: true,
-                            quizName: "supply-chain-security"
-                        })
-                    }).catch(err => console.log('Stats update failed:', err));
+                            quizName: "supply-chain-security",
+                            quizCompleted: true
+                            })
+                        });
+
+                        const response = await res.json();
+                        console.log("Backend")
+                        console.log(response.user.xp);
+
+                        currentUser.xp = response.user.xp;
+                        console.log("Frontend")
+                        console.log(currentUser.xp)
+                        localStorage.setItem('userData', JSON.stringify(currentUser));
+                    } 
+                    catch (err) {
+                        console.log('Stats update failed:', err);
+                    }
                 }
             } catch (error) {
                 console.log('Error updating user stats:', error);
